@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="./public/logo.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SocialTube</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background: black;
+                background-image: radial-gradient(at 20% 30%, rgba(80, 80, 80, 0.6), transparent),
+                                  radial-gradient(at 80% 70%, rgba(40, 40, 40, 0.8), transparent),
+                                  radial-gradient(at 50% 50%, rgba(30, 30, 30, 0.9), transparent);
+                background-attachment: fixed;
+                color: #ddd;
+                font-family: "Inter", sans-serif;
+                /* display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                overflow: hidden; */
+            }
+            #root {
+                /* width: 100%;
+                max-width: 1200px;
+                position: relative; */
+            }
+            /* Blurred Abstract Shapes */
+            .blur-shape {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                filter: blur(100px);
+                opacity: 0.7;
+                z-index: -1;
+            }
+            .shape1 {
+                background: rgba(100, 0, 200, 0.7);
+                top: 10%;
+                left: 5%;
+            }
+            .shape2 {
+                background: rgba(0, 150, 255, 0.6);
+                bottom: 10%;
+                right: 10%;
+            }
+            .shape3 {
+                background: rgba(255, 30, 90, 0.5);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        
+        <!-- Blurred Floating Shapes -->
+        <div class="blur-shape shape1"></div>
+        <div class="blur-shape shape2"></div>
+        <div class="blur-shape shape3"></div>
+
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
+</html>
