@@ -21,6 +21,7 @@ import {
     ChannelPlaylist,
 } from "./pages";
 import { EditPersonalInfo, ChangePassword, Layout } from "./components";
+import NotFound from "./components/not-found";
 
 function App() {
     const dispatch = useDispatch();
@@ -143,6 +144,14 @@ function App() {
                         />
                     </Route>
                 </Route>
+                <Route
+                        path="/notFound"
+                        element={
+                            <AuthLayout authentication={false}>
+                                <NotFound />
+                            </AuthLayout>
+                        }
+                    />
                 <Route
                     path="/login"
                     element={

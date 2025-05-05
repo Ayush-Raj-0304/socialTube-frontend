@@ -33,6 +33,10 @@ function Sidebar() {
         navigate("/");
     };
 
+    const notFound = () =>
+    {
+        navigate("/notFound");
+    }
     return (
         <>
             {/* Sidebar for larger screens */}
@@ -78,6 +82,7 @@ function Sidebar() {
                         )}
                         <motion.div
                             whileHover={{ scale: 1.1 }}
+                            onClick={notFound}
                             className="flex items-center gap-2 justify-center sm:justify-start hover:bg-purple-500 cursor-pointer py-2 px-3 border border-slate-600 rounded-full"
                         >
                             <CiSettings size={25} />
