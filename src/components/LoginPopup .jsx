@@ -4,17 +4,17 @@ import { Button, Logo } from "../components";
 
 const LoginPopup = () => {
     return (
-        <div className="fixed bg-black bg-opacity-0 backdrop-blur-lg inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50">
-            <div className="bg-black bg-opacity-50 backdrop-blur-lg backdrop-blur-lg border-slate-800 rounded-lg p-5 text-white text-center">
-                <div className="  flex flex-col gap-2 items-center mb-10">
+        <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60 backdrop-blur-md p-4">
+            <div className="bg-black bg-opacity-50 border border-slate-600 rounded-xl text-white p-6 w-full max-w-md text-center space-y-6">
+                <div className="flex flex-col items-center gap-2">
                     <Logo size="30" />
+                    <p className="text-xl font-semibold">Login or Signup to continue</p>
                 </div>
-                <p className="text-xl font-medium mb-2">
-                    Login or Signup to continue
-                </p>
-                <Link to="/login">
+
+                <Link to="/login" className="block">
                     <Button
-                        className="bg-purple-500 w-full py-2 px-4 font-bold text-lg rounded"
+                        className="w-full text-lg py-2 hover:bg-purple-700"
+                        bgColor="bg-purple-500"
                         textColor="text-black"
                     >
                         Login

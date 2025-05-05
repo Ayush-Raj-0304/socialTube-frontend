@@ -11,6 +11,7 @@ function Login() {
     const {
         handleSubmit,
         register,
+        setValue,
         formState: { errors },
     } = useForm();
     const navigate = useNavigate();
@@ -30,68 +31,80 @@ function Login() {
         }
     };
 
+    const fillSampleData = () => {
+        setValue("username", "mahi@csk.com");
+        setValue("password", "12345678");
+    };
+
     if (loading) {
         return <LoginSkeleton />;
     }
 
     return (
-        <>
-            <div className="w-full bg-black bg-opacity-50 backdrop-blur-lg h-screen text-white p-3 flex justify-center items-start">
-                <div className="flex bg-black bg-opacity-50 max-w-5xl flex-col space-y-5 justify-center items-center border border-slate-600 p-3 mt-20">
-                    <div className="flex items-center gap-2 mt-5">
-                        <Logo />
-                    </div>
+        <div className="w-full bg-black bg-opacity-50 backdrop-blur-lg h-screen text-white p-3 flex justify-center items-start">
+            <div className="flex bg-black bg-opacity-50 max-w-5xl flex-col space-y-5 justify-center items-center border border-slate-600 p-3 mt-20">
+                <div className="flex items-center gap-2 mt-5">
+                    <Logo />
+                </div>
 
-                    <form
-                        onSubmit={handleSubmit(submit)}
-                        className="space-y-5 p-2"
-                    >
-                        <Input
-                            label="Username / email : "
-                            type="text"
-                            placeholder="example@gmail.com"
-                            {...register("username", {
-                                required: "username is required",
-                            })}
-                        />
-                        {errors.username && (
-                            <span className="text-red-500">
-                                {errors.username.message}
-                            </span>
-                        )}
-                        <Input
-                            label="Password: "
-                            type="password"
-                            placeholder="1kd074fjw0"
-                            {...register("password", {
-                                required: "password is required",
-                            })}
-                        />
-                        {errors.password && (
-                            <span>{errors.password.message}</span>
-                        )}
+                <form onSubmit={handleSubmit(submit)} className="space-y-5 p-2 w-full sm:max-w-md">
+                    <Input
+                        label="Username / email:"
+                        type="text"
+                        placeholder="example@gmail.com"
+                        {...register("username", {
+                            required: "Username is required",
+                        })}
+                    />
+                    {errors.username && (
+                        <span className="text-red-500 text-sm">
+                            {errors.username.message}
+                        </span>
+                    )}
+                    <Input
+                        label="Password:"
+                        type="password"
+                        placeholder="••••••••"
+                        {...register("password", {
+                            required: "Password is required",
+                        })}
+                    />
+                    {errors.password && (
+                        <span className="text-red-500 text-sm">
+                            {errors.password.message}
+                        </span>
+                    )}
 
+                    <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
                         <Button
                             type="submit"
                             bgColor="bg-purple-500"
-                            className=" w-full sm:py-3 py-2 hover:bg-purple-700 text-lg"
+                            className="w-full hover:bg-purple-700 text-lg sm:py-3 py-2"
                         >
                             Login
                         </Button>
+                        <Button
+                            type="button"
+                            bgColor="bg-gray-600"
+                            className="w-full hover:bg-gray-800 text-lg sm:py-3 py-2"
+                            onClick={fillSampleData}
+                        >
+                            Sample Login
+                        </Button>
+                    </div>
 
-                        <p className="text-center text-sm">
-                            Don&apos;t have an account?{" "}
-                            <Link
-                                to={"/signup"}
-                                className="text-purple-600 cursor-pointer hover:opacity-70"
-                            >
-                                SignUp
-                            </Link>
-                        </p>
-                    </form>
-                </div>
+                    <p className="text-center text-sm">
+                        Don&apos;t have an account?{" "}
+                        <Link
+                            to={"/signup"}
+                            className="text-purple-600 cursor-pointer hover:opacity-70"
+                        >
+                            SignUp
+                        </Link>
+                    </p>
+                </form>
             </div>
-        </>
+        </div>
     );
 }
 
